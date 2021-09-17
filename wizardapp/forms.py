@@ -1,4 +1,4 @@
-from django import forms, inlineformset_factory
+from django import forms
 from .models import Person, Messages
 
 class FLNameForm(forms.ModelForm):
@@ -17,4 +17,4 @@ class SNameForm(forms.ModelForm):
             'sname',
         )
 
-MessagesInlineFormSet = inlineformset_factory(Person, Messages, fields=('text',), extra=2, )
+MessagesInlineFormSet = forms.inlineformset_factory(Person, Messages, fields=('text',), extra=2, can_delete=False)
